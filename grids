@@ -1,0 +1,23 @@
+package reversi;
+
+import java.util.ArrayList;
+
+public class Grid {
+	int x, y;//1-8之间的整数表示位置
+	public boolean IsEmpty;//如果棋子颜色状态=2这个值为true
+	public int value;//表示每个格子在算法中的重要性
+	public Grid (int x, int y, boolean b, int v) {
+		this.x = x;
+		this.y = y;
+		this.IsEmpty = b;
+		this.value = v;
+	}
+	public void HasPiece(ChessPieces p) {
+		if (p.color == 2 ) {
+			IsEmpty = false;
+		}
+		else {
+			IsEmpty = true;
+		}
+		}
+	}
