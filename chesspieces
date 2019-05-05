@@ -1,0 +1,48 @@
+package reversi;
+
+import java.awt.Color;
+import java.awt.Graphics;
+
+public class ChessPieces {
+	public Color PieceColor;
+	public int color = 2;//0代表黑色，1代表白色，2代表还没下
+	protected int Radius = 100;
+	int x,y;//用棋盘格表示棋子的坐标
+	public boolean changeable = true;
+	public ChessPieces (int c,int x, int y) {
+		this.color = c;
+		this.x = x;
+		this.y = y;
+	}
+	public void ChangetoBlack() {
+		if (changeable == true) {
+			if(color != 0) {
+				PieceColor = Color.BLACK;
+				color = 0;
+			}
+		}
+		CannotChange();
+	}
+	public void ChangetoWhite() {
+		if (changeable == true) {
+			if(color != 1) {
+				PieceColor = Color.WHITE;
+				color = 1;
+			}
+		}
+		CannotChange();
+	}
+	public void Reset() {
+		color = 2;
+		changeable = true;
+	}
+	public void Draw (Graphics g) {
+		Color c = g.getColor();
+		g.setColor(PieceColor);
+		g.fillOval(x, y, Radius, Radius);
+		g.setColor(PieceColor);
+	}
+	public void CannotChange() {
+		changeable = false;
+	}
+}
